@@ -13,3 +13,10 @@
   color: #9a2221;
   margin-bottom: 2rem;
 }
+
+#validMoves{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.2rem;
+  color: #9a2221;
+  margin-top: 1rem;
+}

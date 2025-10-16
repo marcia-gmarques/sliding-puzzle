@@ -36,6 +36,10 @@ export const handleMoves = (board: BoardType, tileIdx: number) => {
         console.log("Valid move");
         count++;
         console.log("Move count: " + count);
+        
+        //update the move count in the DOM
+        const validMovesElement = document.getElementById("validMoves") as HTMLElement;
+        validMovesElement.innerText = "Moves: " + count;
     }
 
     //create a new board array to avoid mutating the state directly

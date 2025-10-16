@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
-    width: min(70vw, 35rem); /* uses a minimum of 70% of viewport width up to max 35rem */
+    width: min(60vw, 30rem); /* uses a minimum of 60% of viewport width up to max 30rem */
     aspect-ratio: 1; /* keeps it square, without needing height */
     margin: 1rem auto;
     background-color:#881c1a;

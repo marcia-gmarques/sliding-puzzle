@@ -1,4 +1,4 @@
-//shuffle tiles, is the puzzle solvable logic and move tile logic
+//shuffle tiles, is the puzzle solvable logic and is the puzzle solved logic
 import { type BoardType } from './types.tsx';
 
 
@@ -58,18 +58,3 @@ export function isSolved(tiles: BoardType): boolean {
     return true; 
 }
 
-
-
-//function to check if a tile can be moved (if it is adjacent to the empty tile)
-export function getValidMoves(emptyTileIndex: number): number[] {
-    const validMoves: number[] = [];
-    const row = Math.floor(emptyTileIndex / 3); //check which row the empty tile is in, 0 if in the first row, 1 if in the second row, 2 if in the third row
-    const col = emptyTileIndex % 3; //check which column the empty tile is in, if col is 0 (remainer of division is 0) its in the first column, if col is 1 its in the second column, if col is 2 its in the third column
-
-    //check if the empty tile can move up, down, left or right
-    if (row > 0) validMoves.push(emptyTileIndex - 3); //up
-    if (row < 2) validMoves.push(emptyTileIndex + 3); //down    
-    if (col > 0) validMoves.push(emptyTileIndex - 1); //left
-    if (col < 2) validMoves.push(emptyTileIndex + 1); //right
-    return validMoves;
-}

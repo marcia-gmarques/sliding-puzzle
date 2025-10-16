@@ -24,8 +24,12 @@ function App() {
         <div className="title">
           <h1>Sliding Puzzle</h1>
         </div>
-        <Board board={board} setBoard={setBoard} />
-         <button onClick={handleShuffle}>New Game</button>
+        <div>
+          <h2 id="validMoves"></h2>
+          <Board board={board} setBoard={setBoard} />
+          <button onClick={handleShuffle}>New Game</button>
+        </div>
+        
       </div>
     </>
   )
