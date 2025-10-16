@@ -3,11 +3,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
-    width: 30rem;
-    height: 30rem;
+    width: min(70vw, 35rem); /* uses a minimum of 70% of viewport width up to max 35rem */
+    aspect-ratio: 1; /* keeps it square, without needing height */
     margin: 1rem auto;
     background-color:#881c1a;
-    padding: 1.5rem;
+    padding: min(1.5rem, 4vw); /* Responsive padding */
 }
 
 /*style for each tile*/
@@ -18,7 +18,7 @@
     background-color: #e9e2d0;
     color: #9a2221;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 5vw, 2rem); /* responsive font size */
     font-weight: bold;
     cursor: pointer;
     user-select: none;
