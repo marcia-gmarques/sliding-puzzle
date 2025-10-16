@@ -8,12 +8,15 @@ import { shuffleTiles } from './utils/puzzle.tsx';
 function App() {
 
 
-  //state to hold the board
+  //state to hold the board, completed status and move count
   const [board, setBoard] = useState<BoardType>(() => shuffleTiles(initialTiles));
+  // const [completed, setCompleted] = useState<boolean>(false);
+  const [moves, setMoves] = useState<number>(0);
 
-  //function to handle shuffle button click - shuffles the tiles in the board
+  //function to handle shuffle button click - shuffles the tiles in the board and resets move count
   const handleShuffle = () => {
     setBoard(shuffleTiles(board));
+    setMoves(0); //reset move count
     console.log("Board shuffled");
   }
 
@@ -25,9 +28,9 @@ function App() {
           <h1>Sliding Puzzle</h1>
         </div>
         <div>
-          <h2 id="validMoves"></h2>
-          <Board board={board} setBoard={setBoard} />
-          <button onClick={handleShuffle}>New Game</button>
+          <h2 id='validMoves'>Moves : {moves}</h2>
+          <Board board={board} setBoard={setBoard} moves={moves} setMoves={setMoves} />
+          <button onClick={handleShuffle} id='newGameButton'>New Game</button>
         </div>
         
       </div>

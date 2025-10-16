@@ -20,3 +20,15 @@
   color: #9a2221;
   margin-top: 1rem;
 }
+
+#newGameButton{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 0.5rem;
+  background-color: #9a2221;
+  color: #e9e2d0;
+  border: none;
+}
+#newGameButton:hover{
+  background-color: #700f0d;
+  border: none;
+}

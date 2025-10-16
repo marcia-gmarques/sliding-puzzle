@@ -16,36 +16,38 @@ const isAdjacent = (index1: number, index2: number, gridSize = 3): boolean => {
 }
 
 
-let count = 0; //to count moves
-
 //move tile when clicked, but only valid moves (adjacent to empty tile)
-export const handleMoves = (board: BoardType, tileIdx: number) => {
+export const handleMoves = (board: BoardType, tileIdx: number, currentCount: number) => {
+
     console.log("Tile clicked");
+    let newCount = currentCount;
+
     //get the index of the empty tile (tile with value 0)
     const emptyTileIndex = board.findIndex(tile => tile.value === 0);
+
     //testing console logs
     console.log("Empty tile index: " + emptyTileIndex);
     console.log("tile clicked index: " + tileIdx);
 
     if(!isAdjacent(emptyTileIndex, tileIdx)){
         console.log("Invalid move");
-        return board; //invalid move, return the board unchanged
+        return { newBoard: board, moved: false, newCount }; //invalid move, return the board unchanged and keep current count
     }
+
     if(isAdjacent(emptyTileIndex, tileIdx)){
         //testing
         console.log("Valid move");
-        count++;
-        console.log("Move count: " + count);
-        
-        //update the move count in the DOM
-        const validMovesElement = document.getElementById("validMoves") as HTMLElement;
-        validMovesElement.innerText = "Moves: " + count;
+
+        //update the move count
+        newCount = currentCount + 1;
     }
 
     //create a new board array to avoid mutating the state directly
     const newBoard = [...board];
+
     //swap the clicked tile with the empty tile
     [newBoard[emptyTileIndex], newBoard[tileIdx]] = [newBoard[tileIdx], newBoard[emptyTileIndex]];
     console.log("Tile moved");
-    return newBoard; //return the new board state
+    console.log("Move count: " + newCount);
+    return {newBoard, moved: true, newCount}; //return the new board state
 }
