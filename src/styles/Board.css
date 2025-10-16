@@ -1,0 +1,24 @@
+.board{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    background-color:darkslateblue;
+    padding: 20px;
+}
+
+.tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #646cff;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
