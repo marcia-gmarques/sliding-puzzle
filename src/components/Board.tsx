@@ -1,35 +1,28 @@
 // import { useState } from "react";
 import '../styles/Board.css';
 import { type BoardType } from '../utils/types.tsx';
-//import { shuffleTiles } from '../utils/puzzle.tsx';
+import { handleMoves } from './MoveLogic.tsx';
 
-export default function Board(props: { board: BoardType }) {
+export default function Board(props: { board: BoardType, setBoard: (board: BoardType) => void }) {
 
     //state to hold completed status and move count
     // const [completed, setCompleted] = useState<boolean>(false);
     // const [moves, setMoves] = useState<number>(0);
 
-    
-    //console.log(initialTiles);
-
-    //shuffle board on load/initial render
-    // useEffect(() => {
-    //     setBoard(shuffleTiles(board));
-    // }, []);
 
 
   return (
-    <div>
     <div className="board">
-      {props.board.map((tile) => (
-        <div key={tile.index} className={`tile ${tile.value === 0 ? 'empty' : ''}`} onClick={() => {}}>
+      {props.board.map((tile, idx) => (
+        <div key={tile.value} 
+             className={`tile ${tile.value === 0 ? 'empty' : ''}`} 
+             onClick={() => props.setBoard(handleMoves(props.board, idx))}>
           {tile.value !== 0 ? tile.value : ''}
         </div>
       ))}
       
     </div>
-        {/* <button onClick={() => setBoard(shuffleTiles(board))}>New Game</button> */}
-    </div>
+        
     
   );
 }
