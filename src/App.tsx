@@ -14,6 +14,7 @@ function App() {
   const [board, setBoard] = useState<BoardType>(() => shuffleTiles(generateInitialTiles(3)));
   const [moves, setMoves] = useState<number>(0);
   const [gridSize, setGridSize] = useState<number>(3);
+  const [showImage, setShowImage] = useState(false);
 
   //function to handle grid size button click - changes grid size, generates new board and resets move count
   const handleGridSizeChange = (newSize: number) => {
@@ -41,11 +42,12 @@ function App() {
             <button className={gridSize === 3 ? "active" : ""} onClick={() => handleGridSizeChange(3)}>3x3</button>
             <button className={gridSize === 4 ? "active" : ""} onClick={() => handleGridSizeChange(4)}>4x4</button>
             <button className={gridSize === 5 ? "active" : ""} onClick={() => handleGridSizeChange(5)}>5x5</button>
+            <button className={showImage ? "active" : ""} onClick={() => setShowImage(!showImage)}>{showImage ? "Remove Image" : "With Image"}</button>
           </div>
         </div>
         <div>
           <h2 id='validMoves'>Moves : {moves}</h2>
-          <Board board={board} setBoard={setBoard} moves={moves} setMoves={setMoves} gridSize={gridSize} />
+          <Board board={board} setBoard={setBoard} moves={moves} setMoves={setMoves} gridSize={gridSize} showImage={showImage} />
           <Winner board={board} />
           <button onClick={handleShuffle} id='newGameButton'>New Game</button>
         </div>
