@@ -3,6 +3,7 @@ import { type BoardType } from './utils/types.tsx'
 import './App.css'
 import { initialTiles } from './utils/initialTiles.tsx';
 import Board from "./components/Board";
+import Winner from "./components/Winner";
 import { shuffleTiles } from './utils/puzzle.tsx';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <div>
           <h2 id='validMoves'>Moves : {moves}</h2>
           <Board board={board} setBoard={setBoard} moves={moves} setMoves={setMoves} />
+          <Winner board={board} />
           <button onClick={handleShuffle} id='newGameButton'>New Game</button>
         </div>
         
