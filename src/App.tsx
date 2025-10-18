@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { type BoardType } from './utils/types.tsx'
 import './App.css'
-//import { initialTiles } from './utils/initialTiles.tsx';
 import { generateInitialTiles } from './utils/initialTiles.tsx';
 import Board from "./components/Board";
 import Winner from "./components/Winner";

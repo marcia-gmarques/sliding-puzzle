@@ -7,7 +7,7 @@
     aspect-ratio: 1; /* keeps it square, without needing height */
     margin: 1rem auto;
     background-color:#881c1a;
-    padding: min(1.5rem, 4vw); /* Responsive padding */
+    padding: min(1.5rem, 4vw); /* responsive padding */
 }
 
 /*style for each tile*/

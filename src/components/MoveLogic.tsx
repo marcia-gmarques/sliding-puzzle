@@ -49,5 +49,6 @@ export const handleMoves = (board: BoardType, tileIdx: number, currentCount: num
     [newBoard[emptyTileIndex], newBoard[tileIdx]] = [newBoard[tileIdx], newBoard[emptyTileIndex]];
     console.log("Tile moved");
     console.log("Move count: " + newCount);
+    
     return {newBoard, moved: true, newCount}; //return the new board state
 }

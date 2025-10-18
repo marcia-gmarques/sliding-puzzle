@@ -43,6 +43,7 @@ export default function Board(props: {
             backgroundPosition: `${col * percent}% ${row * percent}%`,
             backgroundRepeat: 'no-repeat',
           };
+          //else for number mode, just show the tile value
         } else if (!props.showImage && tile.value !== 0) {
           tileContent = tile.value;
         }
