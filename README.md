@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# Sliding Puzzle Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React + TypeScript implementation of the classic sliding puzzle game (also known as 8-puzzle, 15-puzzle, etc.), built with Vite.
 
-Currently, two official plugins are available:
+## Game Logic
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The board consists of a grid of numbered tiles with one empty space. The goal is to arrange the tiles in ascending order, with the empty space at the end (bottom-right corner).
 
-## React Compiler
+- **Grid Sizes:** You can choose between 3x3, 4x4, or 5x5 grids using the grid size buttons. The board and logic update dynamically.
+- **Solvability:** The game ensures that every shuffled puzzle is solvable. For odd grid sizes (3x3, 5x5), the number of inversions must be even. For even grid sizes (4x4), both the number of inversions and the row of the empty tile are considered.
+- **Moves:** Each time you click a tile adjacent to the empty space, it slides into the empty spot. The move counter tracks your progress.
+- **Win Condition:** When all tiles are in order and the empty space is at the end, a winner message and confetti appear.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Button Functions
 
-## Expanding the ESLint configuration
+- **Grid Size Buttons (3x3, 4x4, 5x5):** Change the board size. The active button is highlighted.
+- **New Game:** Shuffles the current board and resets the move counter.
+- **With Image / No Image:** Toggle between showing numbers or an image sliced into tiles. When "With Image" is active, each tile displays a portion of the image (except the empty tile).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How the Image Mode Works
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- When image mode is enabled, each tile (except the empty one) shows a piece of the selected image, calculated using CSS background positioning so the full image appears when solved.
+- When image mode is disabled, tiles show their numbers as usual.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Customization
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- You can change the image by replacing the file in the `src/assets` folder and updating the path in the code.
+- The board is responsive and works on all screen sizes.
+
+## Development
+
+This project uses Vite for fast development and hot module replacement. To start the app:
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+Enjoy solving the sliding puzzle!
