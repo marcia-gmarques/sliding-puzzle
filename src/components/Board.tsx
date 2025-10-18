@@ -3,10 +3,16 @@ import '../styles/Board.css';
 import { type BoardType } from '../utils/types.tsx';
 import { handleMoves } from './MoveLogic.tsx';
 
-export default function Board(props: { board: BoardType, setBoard: (board: BoardType) => void, moves: number, setMoves: (moves: number) => void }) {
+export default function Board(props: { 
+  board: BoardType, 
+  setBoard: (board: BoardType) => void, 
+  moves: number, 
+  setMoves: (moves: number) => void,
+  gridSize: number
+}) {
 
     const onTileClick = (idx: number) => {
-    const { newBoard, moved, newCount } = handleMoves(props.board, idx, props.moves);
+    const { newBoard, moved, newCount } = handleMoves(props.board, idx, props.moves, props.gridSize);
     if (moved) {
         props.setBoard(newBoard);
         props.setMoves(newCount);
@@ -14,7 +20,7 @@ export default function Board(props: { board: BoardType, setBoard: (board: Board
     };
 
   return (
-    <div className="board">
+    <div className="board" style={{ gridTemplateColumns: `repeat(${props.gridSize}, 1fr)` }}>
       {props.board.map((tile, idx) => (
         <div key={tile.value} 
              className={`tile ${tile.value === 0 ? 'empty' : ''}`} 

@@ -2,7 +2,7 @@
 import type { BoardType } from "../utils/types"; 
 
 //helper function to check if two indices are adjacent on the board
-const isAdjacent = (index1: number, index2: number, gridSize = 3): boolean => {
+const isAdjacent = (index1: number, index2: number, gridSize: number): boolean => {
     //calculate row and column of each index
     const row1 = Math.floor(index1 / gridSize); //0 if in first row, 1 if in second row, 2 if in third row, and so on for larger grids
     const col1 = index1 % gridSize; //if remainder of division is 0 its in first column, if remainder is 1 its in second column, if remainder is 2 its in third column, and so on for larger grids
@@ -17,7 +17,7 @@ const isAdjacent = (index1: number, index2: number, gridSize = 3): boolean => {
 
 
 //move tile when clicked, but only valid moves (adjacent to empty tile)
-export const handleMoves = (board: BoardType, tileIdx: number, currentCount: number) => {
+export const handleMoves = (board: BoardType, tileIdx: number, currentCount: number, gridSize: number) => {
 
     console.log("Tile clicked");
     let newCount = currentCount;
@@ -29,12 +29,12 @@ export const handleMoves = (board: BoardType, tileIdx: number, currentCount: num
     console.log("Empty tile index: " + emptyTileIndex);
     console.log("tile clicked index: " + tileIdx);
 
-    if(!isAdjacent(emptyTileIndex, tileIdx)){
+    if(!isAdjacent(emptyTileIndex, tileIdx, gridSize)){
         console.log("Invalid move");
         return { newBoard: board, moved: false, newCount }; //invalid move, return the board unchanged and keep current count
     }
 
-    if(isAdjacent(emptyTileIndex, tileIdx)){
+    if(isAdjacent(emptyTileIndex, tileIdx, gridSize)){
         //testing
         console.log("Valid move");
 
