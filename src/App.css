@@ -34,6 +34,13 @@
   color: #e9e2d0;
 }
 
+.sizeButtons button.active {
+  background-color: #9a2221;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #700f0d;
+}
+
 #validMoves{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.2rem;

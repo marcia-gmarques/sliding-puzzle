@@ -38,9 +38,9 @@ function App() {
         <div className="title">
           <h1>Sliding Puzzle</h1>
           <div className="sizeButtons">
-            <button onClick={() => handleGridSizeChange(3)}>3x3</button>
-            <button onClick={() => handleGridSizeChange(4)}>4x4</button>
-            <button onClick={() => handleGridSizeChange(5)}>5x5</button>
+            <button className={gridSize === 3 ? "active" : ""} onClick={() => handleGridSizeChange(3)}>3x3</button>
+            <button className={gridSize === 4 ? "active" : ""} onClick={() => handleGridSizeChange(4)}>4x4</button>
+            <button className={gridSize === 5 ? "active" : ""} onClick={() => handleGridSizeChange(5)}>5x5</button>
           </div>
         </div>
         <div>
