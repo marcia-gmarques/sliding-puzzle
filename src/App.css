@@ -2,23 +2,43 @@
   max-width: 1280px;
   width: 80%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  
+  padding: 1rem;
+  text-align: center; 
 }
 
 .title{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1rem;
   color: #9a2221;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sizeButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.sizeButtons button {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #e9e2d0;
+  color: #9a2221;
+  border: 1px solid #9a2221;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.sizeButtons button:hover {
+  background-color: #9a2221;
+  color: #e9e2d0;
 }
 
 #validMoves{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1.2rem;
   color: #9a2221;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 #newGameButton{

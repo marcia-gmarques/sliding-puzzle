@@ -53,6 +53,10 @@ export function isSolved(tiles: BoardType): boolean {
             return false;
         } ; 
     }
+    //check if last tile is the empty tile (value 0)
+    if (tiles[tiles.length - 1].value !== 0) {
+        return false;
+    }
     console.log("Puzzle is solved");
     //if all tiles are in their correct position return true
     return true; 
